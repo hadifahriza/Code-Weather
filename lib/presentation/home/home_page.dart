@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:open_weather/presentation/details/details.dart';
+import 'package:open_weather/presentation/home/widgets/detail_list.dart';
 import 'package:open_weather/presentation/settings/settings_page.dart';
 
 import 'widgets/date_list.dart';
@@ -15,50 +16,51 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool isList = false;
+
+  void changeList() {
+    setState(() {
+      isList = !isList;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(100),
-        child: SizedBox(
-          height: 100,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        shadowColor: Colors.transparent,
+        leading: null,
+        centerTitle: false,
+        title: InkWell(
+          onTap: () {},
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            mainAxisSize: MainAxisSize.max,
             children: [
-              Expanded(
-                child: MaterialButton(
-                  onPressed: () {},
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.search,
-                        color: Theme.of(context).colorScheme.onBackground,
-                      ),
-                      const SizedBox(width: 10),
-                      Text(
-                        'Lokasi',
-                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
-                      ),
-                    ],
-                  ),
-                ),
+              Icon(
+                Icons.search,
+                color: Theme.of(context).colorScheme.onBackground,
               ),
-              MaterialButton(
-                onPressed: () {
-                  // TODO: change to autoRoute
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingPage()));
-                },
-                child: Icon(
-                  Icons.settings,
-                  color: Theme.of(context).colorScheme.onBackground,
-                ),
+              const SizedBox(width: 10),
+              Text(
+                'Lokasi',
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
               ),
             ],
           ),
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingPage()));
+            },
+            icon: Icon(
+              Icons.settings,
+              color: Theme.of(context).colorScheme.onBackground,
+            ),
+          ),
+        ],
       ),
       body: RefreshIndicator(
         onRefresh: () async {},
@@ -98,7 +100,7 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(height: 20),
               const HourList(),
               const SizedBox(height: 20),
-              const DateList(),
+              isList ? DateList(onTap: changeList) : DetailList(onTap: changeList),
             ],
           ),
         ),

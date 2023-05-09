@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 
 class DateTile extends StatelessWidget {
-  const DateTile({super.key});
+  final VoidCallback? onTap;
+
+  const DateTile({
+    super.key,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onTap,
       child: SizedBox(
-        height: 40,
+        height: 30,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

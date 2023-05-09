@@ -3,7 +3,12 @@ import 'package:flutter/material.dart';
 import 'date_tile.dart';
 
 class DateList extends StatelessWidget {
-  const DateList({super.key});
+  final VoidCallback? onTap;
+
+  const DateList({
+    super.key,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +18,9 @@ class DateList extends StatelessWidget {
         physics: const NeverScrollableScrollPhysics(),
         itemCount: 7,
         itemBuilder: (context, index) {
-          return const DateTile();
+          return DateTile(
+            onTap: onTap,
+          );
         },
         separatorBuilder: (context, index) => Divider(
           color: Theme.of(context).colorScheme.secondary,
