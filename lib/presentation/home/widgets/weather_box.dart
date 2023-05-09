@@ -18,6 +18,7 @@ class WeatherBox extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.secondary.withOpacity(0.5),
+            borderRadius: BorderRadius.circular(10),
           ),
           child: Column(
             children: [

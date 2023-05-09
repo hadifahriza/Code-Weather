@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:open_weather/presentation/details/details.dart';
+import 'package:open_weather/presentation/settings/settings_page.dart';
 
 import 'widgets/date_list.dart';
 import 'widgets/hour_list.dart';
@@ -46,7 +47,10 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               MaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                  // TODO: change to autoRoute
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingPage()));
+                },
                 child: Icon(
                   Icons.settings,
                   color: Theme.of(context).colorScheme.onBackground,
@@ -59,7 +63,7 @@ class _HomePageState extends State<HomePage> {
       body: RefreshIndicator(
         onRefresh: () async {},
         child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
