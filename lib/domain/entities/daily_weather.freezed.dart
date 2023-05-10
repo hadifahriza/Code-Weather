@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'current_weather.dart';
+part of 'daily_weather.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,20 +14,20 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-CurrentWeather _$CurrentWeatherFromJson(Map<String, dynamic> json) {
-  return _CurrentWeather.fromJson(json);
+DailyWeather _$DailyWeatherFromJson(Map<String, dynamic> json) {
+  return _DailyWeather.fromJson(json);
 }
 
 /// @nodoc
-mixin _$CurrentWeather {
+mixin _$DailyWeather {
   int? get dt => throw _privateConstructorUsedError;
   int? get sunrise => throw _privateConstructorUsedError;
   int? get sunset => throw _privateConstructorUsedError;
   int? get moonrise => throw _privateConstructorUsedError;
   int? get moonset => throw _privateConstructorUsedError;
   int? get moon_phase => throw _privateConstructorUsedError;
-  double? get temp => throw _privateConstructorUsedError;
-  double? get feels_like => throw _privateConstructorUsedError;
+  TempDaily? get temp => throw _privateConstructorUsedError;
+  TempDaily? get feels_like => throw _privateConstructorUsedError;
   int? get pressure => throw _privateConstructorUsedError;
   int? get humidity => throw _privateConstructorUsedError;
   double? get dew_point => throw _privateConstructorUsedError;
@@ -42,15 +42,15 @@ mixin _$CurrentWeather {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $CurrentWeatherCopyWith<CurrentWeather> get copyWith =>
+  $DailyWeatherCopyWith<DailyWeather> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CurrentWeatherCopyWith<$Res> {
-  factory $CurrentWeatherCopyWith(
-          CurrentWeather value, $Res Function(CurrentWeather) then) =
-      _$CurrentWeatherCopyWithImpl<$Res, CurrentWeather>;
+abstract class $DailyWeatherCopyWith<$Res> {
+  factory $DailyWeatherCopyWith(
+          DailyWeather value, $Res Function(DailyWeather) then) =
+      _$DailyWeatherCopyWithImpl<$Res, DailyWeather>;
   @useResult
   $Res call(
       {int? dt,
@@ -59,8 +59,8 @@ abstract class $CurrentWeatherCopyWith<$Res> {
       int? moonrise,
       int? moonset,
       int? moon_phase,
-      double? temp,
-      double? feels_like,
+      TempDaily? temp,
+      TempDaily? feels_like,
       int? pressure,
       int? humidity,
       double? dew_point,
@@ -72,12 +72,15 @@ abstract class $CurrentWeatherCopyWith<$Res> {
       double? wind_gust,
       List<Weather>? weather,
       double? pop});
+
+  $TempDailyCopyWith<$Res>? get temp;
+  $TempDailyCopyWith<$Res>? get feels_like;
 }
 
 /// @nodoc
-class _$CurrentWeatherCopyWithImpl<$Res, $Val extends CurrentWeather>
-    implements $CurrentWeatherCopyWith<$Res> {
-  _$CurrentWeatherCopyWithImpl(this._value, this._then);
+class _$DailyWeatherCopyWithImpl<$Res, $Val extends DailyWeather>
+    implements $DailyWeatherCopyWith<$Res> {
+  _$DailyWeatherCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -135,11 +138,11 @@ class _$CurrentWeatherCopyWithImpl<$Res, $Val extends CurrentWeather>
       temp: freezed == temp
           ? _value.temp
           : temp // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as TempDaily?,
       feels_like: freezed == feels_like
           ? _value.feels_like
           : feels_like // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as TempDaily?,
       pressure: freezed == pressure
           ? _value.pressure
           : pressure // ignore: cast_nullable_to_non_nullable
@@ -186,14 +189,38 @@ class _$CurrentWeatherCopyWithImpl<$Res, $Val extends CurrentWeather>
               as double?,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TempDailyCopyWith<$Res>? get temp {
+    if (_value.temp == null) {
+      return null;
+    }
+
+    return $TempDailyCopyWith<$Res>(_value.temp!, (value) {
+      return _then(_value.copyWith(temp: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TempDailyCopyWith<$Res>? get feels_like {
+    if (_value.feels_like == null) {
+      return null;
+    }
+
+    return $TempDailyCopyWith<$Res>(_value.feels_like!, (value) {
+      return _then(_value.copyWith(feels_like: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
-abstract class _$$_CurrentWeatherCopyWith<$Res>
-    implements $CurrentWeatherCopyWith<$Res> {
-  factory _$$_CurrentWeatherCopyWith(
-          _$_CurrentWeather value, $Res Function(_$_CurrentWeather) then) =
-      __$$_CurrentWeatherCopyWithImpl<$Res>;
+abstract class _$$_DailyWeatherCopyWith<$Res>
+    implements $DailyWeatherCopyWith<$Res> {
+  factory _$$_DailyWeatherCopyWith(
+          _$_DailyWeather value, $Res Function(_$_DailyWeather) then) =
+      __$$_DailyWeatherCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -203,8 +230,8 @@ abstract class _$$_CurrentWeatherCopyWith<$Res>
       int? moonrise,
       int? moonset,
       int? moon_phase,
-      double? temp,
-      double? feels_like,
+      TempDaily? temp,
+      TempDaily? feels_like,
       int? pressure,
       int? humidity,
       double? dew_point,
@@ -216,14 +243,19 @@ abstract class _$$_CurrentWeatherCopyWith<$Res>
       double? wind_gust,
       List<Weather>? weather,
       double? pop});
+
+  @override
+  $TempDailyCopyWith<$Res>? get temp;
+  @override
+  $TempDailyCopyWith<$Res>? get feels_like;
 }
 
 /// @nodoc
-class __$$_CurrentWeatherCopyWithImpl<$Res>
-    extends _$CurrentWeatherCopyWithImpl<$Res, _$_CurrentWeather>
-    implements _$$_CurrentWeatherCopyWith<$Res> {
-  __$$_CurrentWeatherCopyWithImpl(
-      _$_CurrentWeather _value, $Res Function(_$_CurrentWeather) _then)
+class __$$_DailyWeatherCopyWithImpl<$Res>
+    extends _$DailyWeatherCopyWithImpl<$Res, _$_DailyWeather>
+    implements _$$_DailyWeatherCopyWith<$Res> {
+  __$$_DailyWeatherCopyWithImpl(
+      _$_DailyWeather _value, $Res Function(_$_DailyWeather) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -249,7 +281,7 @@ class __$$_CurrentWeatherCopyWithImpl<$Res>
     Object? weather = freezed,
     Object? pop = freezed,
   }) {
-    return _then(_$_CurrentWeather(
+    return _then(_$_DailyWeather(
       dt: freezed == dt
           ? _value.dt
           : dt // ignore: cast_nullable_to_non_nullable
@@ -277,11 +309,11 @@ class __$$_CurrentWeatherCopyWithImpl<$Res>
       temp: freezed == temp
           ? _value.temp
           : temp // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as TempDaily?,
       feels_like: freezed == feels_like
           ? _value.feels_like
           : feels_like // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as TempDaily?,
       pressure: freezed == pressure
           ? _value.pressure
           : pressure // ignore: cast_nullable_to_non_nullable
@@ -332,8 +364,8 @@ class __$$_CurrentWeatherCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CurrentWeather implements _CurrentWeather {
-  const _$_CurrentWeather(
+class _$_DailyWeather implements _DailyWeather {
+  const _$_DailyWeather(
       {this.dt,
       this.sunrise,
       this.sunset,
@@ -355,8 +387,8 @@ class _$_CurrentWeather implements _CurrentWeather {
       this.pop})
       : _weather = weather;
 
-  factory _$_CurrentWeather.fromJson(Map<String, dynamic> json) =>
-      _$$_CurrentWeatherFromJson(json);
+  factory _$_DailyWeather.fromJson(Map<String, dynamic> json) =>
+      _$$_DailyWeatherFromJson(json);
 
   @override
   final int? dt;
@@ -371,9 +403,9 @@ class _$_CurrentWeather implements _CurrentWeather {
   @override
   final int? moon_phase;
   @override
-  final double? temp;
+  final TempDaily? temp;
   @override
-  final double? feels_like;
+  final TempDaily? feels_like;
   @override
   final int? pressure;
   @override
@@ -407,14 +439,14 @@ class _$_CurrentWeather implements _CurrentWeather {
 
   @override
   String toString() {
-    return 'CurrentWeather(dt: $dt, sunrise: $sunrise, sunset: $sunset, moonrise: $moonrise, moonset: $moonset, moon_phase: $moon_phase, temp: $temp, feels_like: $feels_like, pressure: $pressure, humidity: $humidity, dew_point: $dew_point, uvi: $uvi, clouds: $clouds, visibility: $visibility, wind_speed: $wind_speed, wind_deg: $wind_deg, wind_gust: $wind_gust, weather: $weather, pop: $pop)';
+    return 'DailyWeather(dt: $dt, sunrise: $sunrise, sunset: $sunset, moonrise: $moonrise, moonset: $moonset, moon_phase: $moon_phase, temp: $temp, feels_like: $feels_like, pressure: $pressure, humidity: $humidity, dew_point: $dew_point, uvi: $uvi, clouds: $clouds, visibility: $visibility, wind_speed: $wind_speed, wind_deg: $wind_deg, wind_gust: $wind_gust, weather: $weather, pop: $pop)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CurrentWeather &&
+            other is _$_DailyWeather &&
             (identical(other.dt, dt) || other.dt == dt) &&
             (identical(other.sunrise, sunrise) || other.sunrise == sunrise) &&
             (identical(other.sunset, sunset) || other.sunset == sunset) &&
@@ -474,27 +506,27 @@ class _$_CurrentWeather implements _CurrentWeather {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CurrentWeatherCopyWith<_$_CurrentWeather> get copyWith =>
-      __$$_CurrentWeatherCopyWithImpl<_$_CurrentWeather>(this, _$identity);
+  _$$_DailyWeatherCopyWith<_$_DailyWeather> get copyWith =>
+      __$$_DailyWeatherCopyWithImpl<_$_DailyWeather>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CurrentWeatherToJson(
+    return _$$_DailyWeatherToJson(
       this,
     );
   }
 }
 
-abstract class _CurrentWeather implements CurrentWeather {
-  const factory _CurrentWeather(
+abstract class _DailyWeather implements DailyWeather {
+  const factory _DailyWeather(
       {final int? dt,
       final int? sunrise,
       final int? sunset,
       final int? moonrise,
       final int? moonset,
       final int? moon_phase,
-      final double? temp,
-      final double? feels_like,
+      final TempDaily? temp,
+      final TempDaily? feels_like,
       final int? pressure,
       final int? humidity,
       final double? dew_point,
@@ -505,10 +537,10 @@ abstract class _CurrentWeather implements CurrentWeather {
       final double? wind_deg,
       final double? wind_gust,
       final List<Weather>? weather,
-      final double? pop}) = _$_CurrentWeather;
+      final double? pop}) = _$_DailyWeather;
 
-  factory _CurrentWeather.fromJson(Map<String, dynamic> json) =
-      _$_CurrentWeather.fromJson;
+  factory _DailyWeather.fromJson(Map<String, dynamic> json) =
+      _$_DailyWeather.fromJson;
 
   @override
   int? get dt;
@@ -523,9 +555,9 @@ abstract class _CurrentWeather implements CurrentWeather {
   @override
   int? get moon_phase;
   @override
-  double? get temp;
+  TempDaily? get temp;
   @override
-  double? get feels_like;
+  TempDaily? get feels_like;
   @override
   int? get pressure;
   @override
@@ -550,6 +582,6 @@ abstract class _CurrentWeather implements CurrentWeather {
   double? get pop;
   @override
   @JsonKey(ignore: true)
-  _$$_CurrentWeatherCopyWith<_$_CurrentWeather> get copyWith =>
+  _$$_DailyWeatherCopyWith<_$_DailyWeather> get copyWith =>
       throw _privateConstructorUsedError;
 }

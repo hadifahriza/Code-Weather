@@ -20,14 +20,13 @@ GeneralWeather _$GeneralWeatherFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GeneralWeather {
-  double get lat => throw _privateConstructorUsedError;
-  double get lon => throw _privateConstructorUsedError;
-  String get timezone => throw _privateConstructorUsedError;
-  int get timezone_offset => throw _privateConstructorUsedError;
-  CurrentWeather get current => throw _privateConstructorUsedError;
-  List<MinuteWeather> get minutely => throw _privateConstructorUsedError;
-  List<CurrentWeather> get hourly => throw _privateConstructorUsedError;
-  List<CurrentWeather> get daily => throw _privateConstructorUsedError;
+  double? get lat => throw _privateConstructorUsedError;
+  double? get lon => throw _privateConstructorUsedError;
+  String? get timezone => throw _privateConstructorUsedError;
+  int? get timezone_offset => throw _privateConstructorUsedError;
+  CurrentWeather? get current => throw _privateConstructorUsedError;
+  List<MinuteWeather>? get minutely => throw _privateConstructorUsedError;
+  List<CurrentWeather>? get hourly => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,16 +41,15 @@ abstract class $GeneralWeatherCopyWith<$Res> {
       _$GeneralWeatherCopyWithImpl<$Res, GeneralWeather>;
   @useResult
   $Res call(
-      {double lat,
-      double lon,
-      String timezone,
-      int timezone_offset,
-      CurrentWeather current,
-      List<MinuteWeather> minutely,
-      List<CurrentWeather> hourly,
-      List<CurrentWeather> daily});
+      {double? lat,
+      double? lon,
+      String? timezone,
+      int? timezone_offset,
+      CurrentWeather? current,
+      List<MinuteWeather>? minutely,
+      List<CurrentWeather>? hourly});
 
-  $CurrentWeatherCopyWith<$Res> get current;
+  $CurrentWeatherCopyWith<$Res>? get current;
 }
 
 /// @nodoc
@@ -67,55 +65,54 @@ class _$GeneralWeatherCopyWithImpl<$Res, $Val extends GeneralWeather>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? lat = null,
-    Object? lon = null,
-    Object? timezone = null,
-    Object? timezone_offset = null,
-    Object? current = null,
-    Object? minutely = null,
-    Object? hourly = null,
-    Object? daily = null,
+    Object? lat = freezed,
+    Object? lon = freezed,
+    Object? timezone = freezed,
+    Object? timezone_offset = freezed,
+    Object? current = freezed,
+    Object? minutely = freezed,
+    Object? hourly = freezed,
   }) {
     return _then(_value.copyWith(
-      lat: null == lat
+      lat: freezed == lat
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
-              as double,
-      lon: null == lon
+              as double?,
+      lon: freezed == lon
           ? _value.lon
           : lon // ignore: cast_nullable_to_non_nullable
-              as double,
-      timezone: null == timezone
+              as double?,
+      timezone: freezed == timezone
           ? _value.timezone
           : timezone // ignore: cast_nullable_to_non_nullable
-              as String,
-      timezone_offset: null == timezone_offset
+              as String?,
+      timezone_offset: freezed == timezone_offset
           ? _value.timezone_offset
           : timezone_offset // ignore: cast_nullable_to_non_nullable
-              as int,
-      current: null == current
+              as int?,
+      current: freezed == current
           ? _value.current
           : current // ignore: cast_nullable_to_non_nullable
-              as CurrentWeather,
-      minutely: null == minutely
+              as CurrentWeather?,
+      minutely: freezed == minutely
           ? _value.minutely
           : minutely // ignore: cast_nullable_to_non_nullable
-              as List<MinuteWeather>,
-      hourly: null == hourly
+              as List<MinuteWeather>?,
+      hourly: freezed == hourly
           ? _value.hourly
           : hourly // ignore: cast_nullable_to_non_nullable
-              as List<CurrentWeather>,
-      daily: null == daily
-          ? _value.daily
-          : daily // ignore: cast_nullable_to_non_nullable
-              as List<CurrentWeather>,
+              as List<CurrentWeather>?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $CurrentWeatherCopyWith<$Res> get current {
-    return $CurrentWeatherCopyWith<$Res>(_value.current, (value) {
+  $CurrentWeatherCopyWith<$Res>? get current {
+    if (_value.current == null) {
+      return null;
+    }
+
+    return $CurrentWeatherCopyWith<$Res>(_value.current!, (value) {
       return _then(_value.copyWith(current: value) as $Val);
     });
   }
@@ -130,17 +127,16 @@ abstract class _$$_GeneralWeatherCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {double lat,
-      double lon,
-      String timezone,
-      int timezone_offset,
-      CurrentWeather current,
-      List<MinuteWeather> minutely,
-      List<CurrentWeather> hourly,
-      List<CurrentWeather> daily});
+      {double? lat,
+      double? lon,
+      String? timezone,
+      int? timezone_offset,
+      CurrentWeather? current,
+      List<MinuteWeather>? minutely,
+      List<CurrentWeather>? hourly});
 
   @override
-  $CurrentWeatherCopyWith<$Res> get current;
+  $CurrentWeatherCopyWith<$Res>? get current;
 }
 
 /// @nodoc
@@ -154,48 +150,43 @@ class __$$_GeneralWeatherCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? lat = null,
-    Object? lon = null,
-    Object? timezone = null,
-    Object? timezone_offset = null,
-    Object? current = null,
-    Object? minutely = null,
-    Object? hourly = null,
-    Object? daily = null,
+    Object? lat = freezed,
+    Object? lon = freezed,
+    Object? timezone = freezed,
+    Object? timezone_offset = freezed,
+    Object? current = freezed,
+    Object? minutely = freezed,
+    Object? hourly = freezed,
   }) {
     return _then(_$_GeneralWeather(
-      lat: null == lat
+      lat: freezed == lat
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
-              as double,
-      lon: null == lon
+              as double?,
+      lon: freezed == lon
           ? _value.lon
           : lon // ignore: cast_nullable_to_non_nullable
-              as double,
-      timezone: null == timezone
+              as double?,
+      timezone: freezed == timezone
           ? _value.timezone
           : timezone // ignore: cast_nullable_to_non_nullable
-              as String,
-      timezone_offset: null == timezone_offset
+              as String?,
+      timezone_offset: freezed == timezone_offset
           ? _value.timezone_offset
           : timezone_offset // ignore: cast_nullable_to_non_nullable
-              as int,
-      current: null == current
+              as int?,
+      current: freezed == current
           ? _value.current
           : current // ignore: cast_nullable_to_non_nullable
-              as CurrentWeather,
-      minutely: null == minutely
+              as CurrentWeather?,
+      minutely: freezed == minutely
           ? _value._minutely
           : minutely // ignore: cast_nullable_to_non_nullable
-              as List<MinuteWeather>,
-      hourly: null == hourly
+              as List<MinuteWeather>?,
+      hourly: freezed == hourly
           ? _value._hourly
           : hourly // ignore: cast_nullable_to_non_nullable
-              as List<CurrentWeather>,
-      daily: null == daily
-          ? _value._daily
-          : daily // ignore: cast_nullable_to_non_nullable
-              as List<CurrentWeather>,
+              as List<CurrentWeather>?,
     ));
   }
 }
@@ -204,58 +195,52 @@ class __$$_GeneralWeatherCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_GeneralWeather implements _GeneralWeather {
   const _$_GeneralWeather(
-      {required this.lat,
-      required this.lon,
-      required this.timezone,
-      required this.timezone_offset,
-      required this.current,
-      required final List<MinuteWeather> minutely,
-      required final List<CurrentWeather> hourly,
-      required final List<CurrentWeather> daily})
+      {this.lat,
+      this.lon,
+      this.timezone,
+      this.timezone_offset,
+      this.current,
+      final List<MinuteWeather>? minutely,
+      final List<CurrentWeather>? hourly})
       : _minutely = minutely,
-        _hourly = hourly,
-        _daily = daily;
+        _hourly = hourly;
 
   factory _$_GeneralWeather.fromJson(Map<String, dynamic> json) =>
       _$$_GeneralWeatherFromJson(json);
 
   @override
-  final double lat;
+  final double? lat;
   @override
-  final double lon;
+  final double? lon;
   @override
-  final String timezone;
+  final String? timezone;
   @override
-  final int timezone_offset;
+  final int? timezone_offset;
   @override
-  final CurrentWeather current;
-  final List<MinuteWeather> _minutely;
+  final CurrentWeather? current;
+  final List<MinuteWeather>? _minutely;
   @override
-  List<MinuteWeather> get minutely {
+  List<MinuteWeather>? get minutely {
+    final value = _minutely;
+    if (value == null) return null;
     if (_minutely is EqualUnmodifiableListView) return _minutely;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_minutely);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<CurrentWeather> _hourly;
+  final List<CurrentWeather>? _hourly;
   @override
-  List<CurrentWeather> get hourly {
+  List<CurrentWeather>? get hourly {
+    final value = _hourly;
+    if (value == null) return null;
     if (_hourly is EqualUnmodifiableListView) return _hourly;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_hourly);
-  }
-
-  final List<CurrentWeather> _daily;
-  @override
-  List<CurrentWeather> get daily {
-    if (_daily is EqualUnmodifiableListView) return _daily;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_daily);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
   String toString() {
-    return 'GeneralWeather(lat: $lat, lon: $lon, timezone: $timezone, timezone_offset: $timezone_offset, current: $current, minutely: $minutely, hourly: $hourly, daily: $daily)';
+    return 'GeneralWeather(lat: $lat, lon: $lon, timezone: $timezone, timezone_offset: $timezone_offset, current: $current, minutely: $minutely, hourly: $hourly)';
   }
 
   @override
@@ -271,8 +256,7 @@ class _$_GeneralWeather implements _GeneralWeather {
                 other.timezone_offset == timezone_offset) &&
             (identical(other.current, current) || other.current == current) &&
             const DeepCollectionEquality().equals(other._minutely, _minutely) &&
-            const DeepCollectionEquality().equals(other._hourly, _hourly) &&
-            const DeepCollectionEquality().equals(other._daily, _daily));
+            const DeepCollectionEquality().equals(other._hourly, _hourly));
   }
 
   @JsonKey(ignore: true)
@@ -285,8 +269,7 @@ class _$_GeneralWeather implements _GeneralWeather {
       timezone_offset,
       current,
       const DeepCollectionEquality().hash(_minutely),
-      const DeepCollectionEquality().hash(_hourly),
-      const DeepCollectionEquality().hash(_daily));
+      const DeepCollectionEquality().hash(_hourly));
 
   @JsonKey(ignore: true)
   @override
@@ -304,34 +287,31 @@ class _$_GeneralWeather implements _GeneralWeather {
 
 abstract class _GeneralWeather implements GeneralWeather {
   const factory _GeneralWeather(
-      {required final double lat,
-      required final double lon,
-      required final String timezone,
-      required final int timezone_offset,
-      required final CurrentWeather current,
-      required final List<MinuteWeather> minutely,
-      required final List<CurrentWeather> hourly,
-      required final List<CurrentWeather> daily}) = _$_GeneralWeather;
+      {final double? lat,
+      final double? lon,
+      final String? timezone,
+      final int? timezone_offset,
+      final CurrentWeather? current,
+      final List<MinuteWeather>? minutely,
+      final List<CurrentWeather>? hourly}) = _$_GeneralWeather;
 
   factory _GeneralWeather.fromJson(Map<String, dynamic> json) =
       _$_GeneralWeather.fromJson;
 
   @override
-  double get lat;
+  double? get lat;
   @override
-  double get lon;
+  double? get lon;
   @override
-  String get timezone;
+  String? get timezone;
   @override
-  int get timezone_offset;
+  int? get timezone_offset;
   @override
-  CurrentWeather get current;
+  CurrentWeather? get current;
   @override
-  List<MinuteWeather> get minutely;
+  List<MinuteWeather>? get minutely;
   @override
-  List<CurrentWeather> get hourly;
-  @override
-  List<CurrentWeather> get daily;
+  List<CurrentWeather>? get hourly;
   @override
   @JsonKey(ignore: true)
   _$$_GeneralWeatherCopyWith<_$_GeneralWeather> get copyWith =>

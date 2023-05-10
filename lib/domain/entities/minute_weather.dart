@@ -7,8 +7,8 @@ part 'minute_weather.g.dart';
 @freezed
 class MinuteWeather with _$MinuteWeather {
   const factory MinuteWeather({
-    required Dt dt,
-    required Precipitation precipitation,
+    Dt? dt,
+    Precipitation? precipitation,
   }) = _MinuteWeather;
 
   factory MinuteWeather.fromJson(Map<String, dynamic> json) => _$MinuteWeatherFromJson(json);

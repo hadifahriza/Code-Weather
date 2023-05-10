@@ -16,7 +16,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
   LocationBloc(this._getPositionLocationUsecase) : super(const _Initial(null)) {
     on<LocationEvent>((event, emit) async {
       await event.mapOrNull(
-        started: (value) async => _getPosition(emit),
+        started: (_) async => _getPosition(emit),
       );
     });
   }
@@ -26,10 +26,6 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
 
     if (permission == LocationPermission.denied || permission == LocationPermission.deniedForever) {
       permission = await Geolocator.requestPermission();
-    }
-
-    if (permission == LocationPermission.denied || permission == LocationPermission.deniedForever) {
-      throw 'Location Access Denied';
     }
   }
 

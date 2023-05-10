@@ -7,10 +7,10 @@ part 'weather.g.dart';
 @freezed
 class Weather with _$Weather {
   const factory Weather({
-    required Id id,
-    required Main main,
-    required Description description,
-    required Icon icon,
+    Id? id,
+    Main? main,
+    Description? description,
+    Icon? icon,
   }) = _Weather;
 
   factory Weather.fromJson(Map<String, dynamic> json) => _$WeatherFromJson(json);

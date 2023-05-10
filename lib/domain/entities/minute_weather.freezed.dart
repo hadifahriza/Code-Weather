@@ -20,8 +20,8 @@ MinuteWeather _$MinuteWeatherFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MinuteWeather {
-  int get dt => throw _privateConstructorUsedError;
-  int get precipitation => throw _privateConstructorUsedError;
+  int? get dt => throw _privateConstructorUsedError;
+  int? get precipitation => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +35,7 @@ abstract class $MinuteWeatherCopyWith<$Res> {
           MinuteWeather value, $Res Function(MinuteWeather) then) =
       _$MinuteWeatherCopyWithImpl<$Res, MinuteWeather>;
   @useResult
-  $Res call({int dt, int precipitation});
+  $Res call({int? dt, int? precipitation});
 }
 
 /// @nodoc
@@ -51,18 +51,18 @@ class _$MinuteWeatherCopyWithImpl<$Res, $Val extends MinuteWeather>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dt = null,
-    Object? precipitation = null,
+    Object? dt = freezed,
+    Object? precipitation = freezed,
   }) {
     return _then(_value.copyWith(
-      dt: null == dt
+      dt: freezed == dt
           ? _value.dt
           : dt // ignore: cast_nullable_to_non_nullable
-              as int,
-      precipitation: null == precipitation
+              as int?,
+      precipitation: freezed == precipitation
           ? _value.precipitation
           : precipitation // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ) as $Val);
   }
 }
@@ -75,7 +75,7 @@ abstract class _$$_MinuteWeatherCopyWith<$Res>
       __$$_MinuteWeatherCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int dt, int precipitation});
+  $Res call({int? dt, int? precipitation});
 }
 
 /// @nodoc
@@ -89,18 +89,18 @@ class __$$_MinuteWeatherCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dt = null,
-    Object? precipitation = null,
+    Object? dt = freezed,
+    Object? precipitation = freezed,
   }) {
     return _then(_$_MinuteWeather(
-      dt: null == dt
+      dt: freezed == dt
           ? _value.dt
           : dt // ignore: cast_nullable_to_non_nullable
-              as int,
-      precipitation: null == precipitation
+              as int?,
+      precipitation: freezed == precipitation
           ? _value.precipitation
           : precipitation // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -108,15 +108,15 @@ class __$$_MinuteWeatherCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_MinuteWeather implements _MinuteWeather {
-  const _$_MinuteWeather({required this.dt, required this.precipitation});
+  const _$_MinuteWeather({this.dt, this.precipitation});
 
   factory _$_MinuteWeather.fromJson(Map<String, dynamic> json) =>
       _$$_MinuteWeatherFromJson(json);
 
   @override
-  final int dt;
+  final int? dt;
   @override
-  final int precipitation;
+  final int? precipitation;
 
   @override
   String toString() {
@@ -152,17 +152,16 @@ class _$_MinuteWeather implements _MinuteWeather {
 }
 
 abstract class _MinuteWeather implements MinuteWeather {
-  const factory _MinuteWeather(
-      {required final int dt,
-      required final int precipitation}) = _$_MinuteWeather;
+  const factory _MinuteWeather({final int? dt, final int? precipitation}) =
+      _$_MinuteWeather;
 
   factory _MinuteWeather.fromJson(Map<String, dynamic> json) =
       _$_MinuteWeather.fromJson;
 
   @override
-  int get dt;
+  int? get dt;
   @override
-  int get precipitation;
+  int? get precipitation;
   @override
   @JsonKey(ignore: true)
   _$$_MinuteWeatherCopyWith<_$_MinuteWeather> get copyWith =>

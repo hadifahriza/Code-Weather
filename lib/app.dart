@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:open_weather/bloc/location/location_bloc.dart';
+import 'package:open_weather/bloc/weather/weather_bloc.dart';
 import 'package:open_weather/core/constants/app_constants.dart';
 import 'package:open_weather/core/styles/color_style.dart';
 import 'package:open_weather/core/styles/text_style.dart';
@@ -16,6 +17,9 @@ class App extends StatelessWidget {
       providers: [
         BlocProvider<LocationBloc>(
           create: (context) => getIt<LocationBloc>(),
+        ),
+        BlocProvider<WeatherBloc>(
+          create: (context) => getIt<WeatherBloc>(),
         ),
       ],
       child: MaterialApp(

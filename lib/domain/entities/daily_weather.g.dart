@@ -1,21 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'current_weather.dart';
+part of 'daily_weather.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_CurrentWeather _$$_CurrentWeatherFromJson(Map<String, dynamic> json) =>
-    _$_CurrentWeather(
+_$_DailyWeather _$$_DailyWeatherFromJson(Map<String, dynamic> json) =>
+    _$_DailyWeather(
       dt: json['dt'] as int?,
       sunrise: json['sunrise'] as int?,
       sunset: json['sunset'] as int?,
       moonrise: json['moonrise'] as int?,
       moonset: json['moonset'] as int?,
       moon_phase: json['moon_phase'] as int?,
-      temp: (json['temp'] as num?)?.toDouble(),
-      feels_like: (json['feels_like'] as num?)?.toDouble(),
+      temp: json['temp'] == null
+          ? null
+          : TempDaily.fromJson(json['temp'] as Map<String, dynamic>),
+      feels_like: json['feels_like'] == null
+          ? null
+          : TempDaily.fromJson(json['feels_like'] as Map<String, dynamic>),
       pressure: json['pressure'] as int?,
       humidity: json['humidity'] as int?,
       dew_point: (json['dew_point'] as num?)?.toDouble(),
@@ -31,7 +35,7 @@ _$_CurrentWeather _$$_CurrentWeatherFromJson(Map<String, dynamic> json) =>
       pop: (json['pop'] as num?)?.toDouble(),
     );
 
-Map<String, dynamic> _$$_CurrentWeatherToJson(_$_CurrentWeather instance) =>
+Map<String, dynamic> _$$_DailyWeatherToJson(_$_DailyWeather instance) =>
     <String, dynamic>{
       'dt': instance.dt,
       'sunrise': instance.sunrise,

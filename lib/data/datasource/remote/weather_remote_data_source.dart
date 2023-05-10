@@ -25,8 +25,6 @@ class WeatherRemoteDataSourceImpl implements WeatherRemoteDataSource {
         'appid': SecretKey.appid,
       };
 
-      print(queryParam);
-
       final response = await client.get(
         ApiUrl.baseUrl,
         queryParameters: queryParam,

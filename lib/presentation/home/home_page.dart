@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:open_weather/bloc/location/location_bloc.dart';
+import 'package:open_weather/bloc/weather/weather_bloc.dart';
 import 'package:open_weather/core/styles/constant_style.dart';
 import 'package:open_weather/presentation/details/details.dart';
 import 'package:open_weather/presentation/home/widgets/detail_list.dart';
@@ -26,6 +27,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     context.read<LocationBloc>().add(const LocationEvent.started());
+    context.read<WeatherBloc>().add(WeatherEvent.started(context.read<LocationBloc>().state.currentPosition));
   }
 
   void changeList() {
@@ -83,31 +85,30 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const Temperature(),
-              MaterialButton(
-                onPressed: () {
-                  // TODO: change to autoRoute
-                  context.read<LocationBloc>().add(const LocationEvent.started());
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const DetailsPage()));
-                },
-                color: Theme.of(context).colorScheme.primary,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(ConstantStyle.radius10)),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      Icons.info,
-                      color: Theme.of(context).colorScheme.onPrimary,
-                    ),
-                    const SizedBox(width: ConstantStyle.width10),
-                    Text(
-                      'Waspada Hujan Lebat - Moderate',
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            color: Theme.of(context).colorScheme.onPrimary,
-                          ),
-                    ),
-                  ],
-                ),
-              ),
+              // MaterialButton(
+              //   onPressed: () {
+              //     // TODO: change to autoRoute
+              //     Navigator.push(context, MaterialPageRoute(builder: (context) => const DetailsPage()));
+              //   },
+              //   color: Theme.of(context).colorScheme.primary,
+              //   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(ConstantStyle.radius10)),
+              //   child: Row(
+              //     mainAxisSize: MainAxisSize.min,
+              //     children: [
+              //       Icon(
+              //         Icons.info,
+              //         color: Theme.of(context).colorScheme.onPrimary,
+              //       ),
+              //       const SizedBox(width: ConstantStyle.width10),
+              //       Text(
+              //         'Waspada Hujan Lebat - Moderate',
+              //         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              //               color: Theme.of(context).colorScheme.onPrimary,
+              //             ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
               const SizedBox(height: ConstantStyle.height20),
               const WeatherBox(),
               const SizedBox(height: ConstantStyle.height20),

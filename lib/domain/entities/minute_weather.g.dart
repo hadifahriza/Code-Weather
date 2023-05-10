@@ -8,8 +8,8 @@ part of 'minute_weather.dart';
 
 _$_MinuteWeather _$$_MinuteWeatherFromJson(Map<String, dynamic> json) =>
     _$_MinuteWeather(
-      dt: json['dt'] as int,
-      precipitation: json['precipitation'] as int,
+      dt: json['dt'] as int?,
+      precipitation: json['precipitation'] as int?,
     );
 
 Map<String, dynamic> _$$_MinuteWeatherToJson(_$_MinuteWeather instance) =>

@@ -1,21 +1,22 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:open_weather/domain/entities/temp_daily.dart';
 import 'package:open_weather/domain/entities/weather.dart';
 import 'package:open_weather/core/types/types.dart';
 
-part 'current_weather.freezed.dart';
-part 'current_weather.g.dart';
+part 'daily_weather.freezed.dart';
+part 'daily_weather.g.dart';
 
 @freezed
-class CurrentWeather with _$CurrentWeather {
-  const factory CurrentWeather({
+class DailyWeather with _$DailyWeather {
+  const factory DailyWeather({
     Dt? dt,
     Sunrise? sunrise,
     Sunset? sunset,
     Moonrise? moonrise,
     Moonset? moonset,
     MoonPhase? moon_phase,
-    Temp? temp,
-    FeelsLike? feels_like,
+    TempDaily? temp,
+    TempDaily? feels_like,
     Pressure? pressure,
     Humidity? humidity,
     DewPoint? dew_point,
@@ -27,7 +28,7 @@ class CurrentWeather with _$CurrentWeather {
     WindGust? wind_gust,
     List<Weather>? weather,
     Pop? pop,
-  }) = _CurrentWeather;
+  }) = _DailyWeather;
 
-  factory CurrentWeather.fromJson(Map<String, dynamic> json) => _$CurrentWeatherFromJson(json);
+  factory DailyWeather.fromJson(Map<String, dynamic> json) => _$DailyWeatherFromJson(json);
 }
