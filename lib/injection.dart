@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:open_weather/bloc/location/location_bloc.dart';
 import 'package:open_weather/data/datasource/remote/location_remote_data_source.dart';
 import 'package:open_weather/data/datasource/remote/weather_remote_data_source.dart';
 import 'package:open_weather/data/repositories/location_repository_impl.dart';
@@ -13,6 +14,7 @@ final getIt = GetIt.instance;
 
 void init() {
   // bloc
+  getIt.registerFactory(() => LocationBloc(getIt()));
 
   // usecase
   getIt.registerLazySingleton(() => GetGeneralWeatherUsecase(getIt()));

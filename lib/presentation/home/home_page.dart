@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:open_weather/bloc/location/location_bloc.dart';
 import 'package:open_weather/core/styles/constant_style.dart';
 import 'package:open_weather/presentation/details/details.dart';
 import 'package:open_weather/presentation/home/widgets/detail_list.dart';
@@ -19,6 +21,14 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool isList = false;
+
+  @override
+  void initState() {
+    super.initState();
+    debugPrint('home');
+    context.read<LocationBloc>().add(const LocationEvent.started());
+    print(context.read<LocationBloc>().state.currentPosition);
+  }
 
   void changeList() {
     setState(() {
@@ -78,7 +88,9 @@ class _HomePageState extends State<HomePage> {
               MaterialButton(
                 onPressed: () {
                   // TODO: change to autoRoute
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const DetailsPage()));
+                  // Navigator.push(context, MaterialPageRoute(builder: (context) => const DetailsPage()));
+                  context.read<LocationBloc>().add(const LocationEvent.started());
+                  print(context.read<LocationBloc>().state.currentPosition);
                 },
                 color: Theme.of(context).colorScheme.primary,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(ConstantStyle.radius10)),
