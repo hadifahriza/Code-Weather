@@ -6,7 +6,7 @@ import 'package:open_weather/core/constants/app_constants.dart';
 import 'package:open_weather/core/styles/color_style.dart';
 import 'package:open_weather/core/styles/text_style.dart';
 import 'package:open_weather/injection.dart';
-import 'package:open_weather/presentation/home/home_page.dart';
+import 'package:open_weather/presentation/splash/splash.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -28,7 +28,7 @@ class App extends StatelessWidget {
           textTheme: CustomTextStyle.textTheme,
           colorScheme: CustomColorStyle.lightColorScheme,
         ),
-        home: const HomePage(),
+        home: const SplashScreens(),
       ),
     );
   }

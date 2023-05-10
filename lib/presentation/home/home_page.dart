@@ -23,12 +23,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool isList = false;
 
-  @override
-  void initState() {
-    super.initState();
-    Future.microtask(() => fetchData());
-  }
-
   void fetchData() {
     context.read<LocationBloc>().add(const LocationEvent.started());
     context.read<WeatherBloc>().add(WeatherEvent.started(context.read<LocationBloc>().state.currentPosition));
