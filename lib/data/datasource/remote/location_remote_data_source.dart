@@ -10,9 +10,9 @@ abstract class LocationRemoteDataSource {
   Future<Position> getPositionLocation(GetPositionLocationParams params);
 }
 
-class WeatherRemoteDataSourceImpl implements LocationRemoteDataSource {
+class LocationRemoteDataSourceImpl implements LocationRemoteDataSource {
   final Dio client;
-  WeatherRemoteDataSourceImpl(this.client);
+  LocationRemoteDataSourceImpl(this.client);
 
   @override
   Future<Position> getPositionLocation(GetPositionLocationParams params) async {
