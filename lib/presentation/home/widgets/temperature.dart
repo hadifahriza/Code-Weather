@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_weather/core/styles/constant_style.dart';
 
 class Temperature extends StatelessWidget {
   const Temperature({super.key});
@@ -11,7 +12,7 @@ class Temperature extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Icon(Icons.cloud),
-            const SizedBox(width: 10),
+            const SizedBox(width: ConstantStyle.width10),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

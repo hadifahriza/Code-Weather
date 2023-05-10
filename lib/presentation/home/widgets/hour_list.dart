@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_weather/core/styles/constant_style.dart';
 
 import 'hour_weather.dart';
 
@@ -8,7 +9,7 @@ class HourList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 60,
+      height: ConstantStyle.height60,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         physics: const AlwaysScrollableScrollPhysics(),
@@ -16,7 +17,7 @@ class HourList extends StatelessWidget {
         itemBuilder: (context, index) {
           return const HourWeather();
         },
-        separatorBuilder: (context, index) => const SizedBox(width: 20),
+        separatorBuilder: (context, index) => const SizedBox(width: ConstantStyle.width20),
       ),
     );
   }

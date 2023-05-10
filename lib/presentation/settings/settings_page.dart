@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_weather/core/styles/constant_style.dart';
 
 class SettingPage extends StatelessWidget {
   const SettingPage({super.key});
@@ -26,7 +27,7 @@ class SettingPage extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: ConstantStyle.padding10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -40,7 +41,7 @@ class SettingPage extends StatelessWidget {
               ),
               trailing: Icon(
                 Icons.arrow_forward_ios,
-                size: 16,
+                size: ConstantStyle.size16,
                 color: Theme.of(context).colorScheme.onBackground,
               ),
             ),
@@ -54,7 +55,7 @@ class SettingPage extends StatelessWidget {
               ),
               trailing: Icon(
                 Icons.arrow_forward_ios,
-                size: 16,
+                size: ConstantStyle.size16,
                 color: Theme.of(context).colorScheme.onBackground,
               ),
             ),

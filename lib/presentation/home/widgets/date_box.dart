@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_weather/core/styles/constant_style.dart';
 
 class DateBox extends StatelessWidget {
   const DateBox({super.key});
@@ -6,11 +7,11 @@ class DateBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 40,
-      padding: const EdgeInsets.symmetric(horizontal: 5),
+      height: ConstantStyle.height40,
+      padding: const EdgeInsets.symmetric(horizontal: ConstantStyle.padding5),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.secondary.withOpacity(0.5),
-        borderRadius: BorderRadius.circular(10),
+        color: Theme.of(context).colorScheme.secondary.withOpacity(ConstantStyle.opacity50),
+        borderRadius: BorderRadius.circular(ConstantStyle.radius10),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,

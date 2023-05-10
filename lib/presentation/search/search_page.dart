@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_weather/core/styles/constant_style.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
@@ -11,11 +12,11 @@ class SearchPage extends StatelessWidget {
         shadowColor: Colors.transparent,
         automaticallyImplyLeading: false,
         title: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.symmetric(horizontal: ConstantStyle.padding10),
           height: 40,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(100),
-            color: Theme.of(context).colorScheme.onBackground.withOpacity(0.5),
+            borderRadius: BorderRadius.circular(ConstantStyle.radius100),
+            color: Theme.of(context).colorScheme.onBackground.withOpacity(ConstantStyle.opacity50),
           ),
           child: Row(
             mainAxisSize: MainAxisSize.max,
@@ -24,7 +25,7 @@ class SearchPage extends StatelessWidget {
                 Icons.search,
                 color: Theme.of(context).colorScheme.onBackground,
               ),
-              const SizedBox(width: 10),
+              const SizedBox(width: ConstantStyle.width10),
               Expanded(
                 child: TextFormField(
                   controller: TextEditingController(),
@@ -47,7 +48,7 @@ class SearchPage extends StatelessWidget {
         ],
       ),
       body: ListView.separated(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: ConstantStyle.padding10, vertical: ConstantStyle.padding10),
         itemCount: 10,
         itemBuilder: (context, index) {
           return ListTile(

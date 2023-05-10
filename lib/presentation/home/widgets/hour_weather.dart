@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_weather/core/styles/constant_style.dart';
 
 class HourWeather extends StatelessWidget {
   const HourWeather({super.key});
@@ -14,7 +15,7 @@ class HourWeather extends StatelessWidget {
           ),
           Icon(
             Icons.cloud,
-            color: Theme.of(context).colorScheme.onBackground.withOpacity(0.5),
+            color: Theme.of(context).colorScheme.onBackground.withOpacity(ConstantStyle.opacity50),
           ),
           Text(
             '72 F',

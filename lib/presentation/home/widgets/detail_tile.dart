@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_weather/core/styles/constant_style.dart';
 
 class DetailTile extends StatelessWidget {
   const DetailTile({super.key});
@@ -6,7 +7,7 @@ class DetailTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 40,
+      height: ConstantStyle.height40,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

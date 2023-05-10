@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_weather/core/styles/constant_style.dart';
 import 'package:open_weather/presentation/home/widgets/date_box.dart';
 
 class DetailList extends StatelessWidget {
@@ -14,7 +15,7 @@ class DetailList extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          height: 40,
+          height: ConstantStyle.height40,
           child: Row(
             children: [
               Expanded(
@@ -36,7 +37,7 @@ class DetailList extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: ConstantStyle.height10),
         ListTile(
           contentPadding: EdgeInsets.zero,
           dense: true,
@@ -66,7 +67,7 @@ class DetailList extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: ConstantStyle.height10),
         SizedBox(
           height: 8 * 62,
           child: ListView.separated(

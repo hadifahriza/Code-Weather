@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_weather/core/styles/constant_style.dart';
 
 class WeatherBox extends StatelessWidget {
   const WeatherBox({super.key});
@@ -13,12 +14,12 @@ class WeatherBox extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: ConstantStyle.height10),
         Container(
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+          padding: const EdgeInsets.symmetric(vertical: ConstantStyle.padding10, horizontal: ConstantStyle.padding10),
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.secondary.withOpacity(0.5),
-            borderRadius: BorderRadius.circular(10),
+            color: Theme.of(context).colorScheme.secondary.withOpacity(ConstantStyle.opacity50),
+            borderRadius: BorderRadius.circular(ConstantStyle.radius10),
           ),
           child: Column(
             children: [
@@ -48,7 +49,7 @@ class WeatherBox extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: ConstantStyle.height10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
