@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:equatable/equatable.dart';
 import 'package:fpdart/fpdart.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:open_weather/core/constants/message_constants.dart';
 import 'package:open_weather/core/error/exceptions.dart';
 import 'package:open_weather/core/error/failure.dart';
@@ -29,14 +30,14 @@ class GetGeneralWeatherUsecase extends UseCase<GeneralWeather, GetGeneralWeather
 }
 
 class GetGeneralWeatherParams extends Equatable {
-  final Tuple2 latlon;
+  final Position position;
 
   const GetGeneralWeatherParams({
-    required this.latlon,
+    required this.position,
   });
 
   @override
   List<Object?> get props => [
-        latlon,
+        position,
       ];
 }

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:open_weather/core/constants/api_url.dart';
 import 'package:open_weather/core/constants/message_constants.dart';
+import 'package:open_weather/core/constants/secret_key.dart';
 import 'package:open_weather/core/error/exceptions.dart';
 import 'package:open_weather/domain/entities/general_weather.dart';
 import 'package:open_weather/domain/usecases/get_general_weather_usecase.dart';
@@ -18,8 +19,17 @@ class WeatherRemoteDataSourceImpl implements WeatherRemoteDataSource {
   @override
   Future<GeneralWeather> getGeneralWeather(GetGeneralWeatherParams params) async {
     try {
-      final response = await client.post(
+      Map<String, dynamic> queryParam = {
+        'lat': params.position.latitude,
+        'lon': params.position.longitude,
+        'appid': SecretKey.appid,
+      };
+
+      print(queryParam);
+
+      final response = await client.get(
         ApiUrl.baseUrl,
+        queryParameters: queryParam,
         options: Options(headers: {}),
       );
 
