@@ -12,7 +12,6 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('debug');
     return MultiBlocProvider(
       providers: [
         BlocProvider<LocationBloc>(

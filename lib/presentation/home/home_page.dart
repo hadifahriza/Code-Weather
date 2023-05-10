@@ -25,9 +25,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    debugPrint('home');
     context.read<LocationBloc>().add(const LocationEvent.started());
-    print(context.read<LocationBloc>().state.currentPosition);
   }
 
   void changeList() {
@@ -88,9 +86,8 @@ class _HomePageState extends State<HomePage> {
               MaterialButton(
                 onPressed: () {
                   // TODO: change to autoRoute
-                  // Navigator.push(context, MaterialPageRoute(builder: (context) => const DetailsPage()));
                   context.read<LocationBloc>().add(const LocationEvent.started());
-                  print(context.read<LocationBloc>().state.currentPosition);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const DetailsPage()));
                 },
                 color: Theme.of(context).colorScheme.primary,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(ConstantStyle.radius10)),

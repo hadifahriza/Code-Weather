@@ -17,7 +17,8 @@ class LocationRemoteDataSourceImpl implements LocationRemoteDataSource {
   @override
   Future<Position> getPositionLocation(GetPositionLocationParams params) async {
     try {
-      return Geolocator.getCurrentPosition();
+      Position position = await Geolocator.getCurrentPosition();
+      return position;
     } on DioError catch (e) {
       if (e.type == DioErrorType.badResponse) {
         throw ServerExceptions(MessagesConstants.somethingWentWrong);
