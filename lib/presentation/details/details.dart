@@ -9,7 +9,7 @@ class DetailsPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.background,
         shadowColor: Theme.of(context).colorScheme.background,
-        leading: const SizedBox(),
+        automaticallyImplyLeading: false,
         centerTitle: true,
         title: Text(
           'Government Alert',

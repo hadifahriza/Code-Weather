@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:open_weather/presentation/details/details.dart';
 import 'package:open_weather/presentation/home/widgets/detail_list.dart';
+import 'package:open_weather/presentation/search/search_page.dart';
 import 'package:open_weather/presentation/settings/settings_page.dart';
 
 import 'widgets/date_list.dart';
@@ -30,10 +31,12 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
-        leading: null,
+        automaticallyImplyLeading: false,
         centerTitle: false,
         title: InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => const SearchPage()));
+          },
           child: Row(
             children: [
               Icon(

@@ -10,8 +10,14 @@ class DetailTile extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text('Precipitation'),
-          Text('0.133in'),
+          Text(
+            'Precipitation',
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
+          Text(
+            '0.133in',
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
         ],
       ),
     );
