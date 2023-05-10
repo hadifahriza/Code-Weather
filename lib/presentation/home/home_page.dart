@@ -26,6 +26,10 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+    Future.microtask(() => fetchData());
+  }
+
+  void fetchData() {
     context.read<LocationBloc>().add(const LocationEvent.started());
     context.read<WeatherBloc>().add(WeatherEvent.started(context.read<LocationBloc>().state.currentPosition));
   }
@@ -77,7 +81,7 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: RefreshIndicator(
-        onRefresh: () async {},
+        onRefresh: () async => fetchData(),
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: ConstantStyle.padding10, vertical: ConstantStyle.padding10),
           child: Column(

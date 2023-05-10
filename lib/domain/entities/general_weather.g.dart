@@ -21,6 +21,9 @@ _$_GeneralWeather _$$_GeneralWeatherFromJson(Map<String, dynamic> json) =>
       hourly: (json['hourly'] as List<dynamic>?)
           ?.map((e) => CurrentWeather.fromJson(e as Map<String, dynamic>))
           .toList(),
+      daily: (json['daily'] as List<dynamic>?)
+          ?.map((e) => DailyWeather.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$_GeneralWeatherToJson(_$_GeneralWeather instance) =>
@@ -32,4 +35,5 @@ Map<String, dynamic> _$$_GeneralWeatherToJson(_$_GeneralWeather instance) =>
       'current': instance.current,
       'minutely': instance.minutely,
       'hourly': instance.hourly,
+      'daily': instance.daily,
     };

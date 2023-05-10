@@ -25,7 +25,7 @@ mixin _$CurrentWeather {
   int? get sunset => throw _privateConstructorUsedError;
   int? get moonrise => throw _privateConstructorUsedError;
   int? get moonset => throw _privateConstructorUsedError;
-  int? get moon_phase => throw _privateConstructorUsedError;
+  double? get moon_phase => throw _privateConstructorUsedError;
   double? get temp => throw _privateConstructorUsedError;
   double? get feels_like => throw _privateConstructorUsedError;
   int? get pressure => throw _privateConstructorUsedError;
@@ -58,7 +58,7 @@ abstract class $CurrentWeatherCopyWith<$Res> {
       int? sunset,
       int? moonrise,
       int? moonset,
-      int? moon_phase,
+      double? moon_phase,
       double? temp,
       double? feels_like,
       int? pressure,
@@ -131,7 +131,7 @@ class _$CurrentWeatherCopyWithImpl<$Res, $Val extends CurrentWeather>
       moon_phase: freezed == moon_phase
           ? _value.moon_phase
           : moon_phase // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       temp: freezed == temp
           ? _value.temp
           : temp // ignore: cast_nullable_to_non_nullable
@@ -202,7 +202,7 @@ abstract class _$$_CurrentWeatherCopyWith<$Res>
       int? sunset,
       int? moonrise,
       int? moonset,
-      int? moon_phase,
+      double? moon_phase,
       double? temp,
       double? feels_like,
       int? pressure,
@@ -273,7 +273,7 @@ class __$$_CurrentWeatherCopyWithImpl<$Res>
       moon_phase: freezed == moon_phase
           ? _value.moon_phase
           : moon_phase // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       temp: freezed == temp
           ? _value.temp
           : temp // ignore: cast_nullable_to_non_nullable
@@ -369,7 +369,7 @@ class _$_CurrentWeather implements _CurrentWeather {
   @override
   final int? moonset;
   @override
-  final int? moon_phase;
+  final double? moon_phase;
   @override
   final double? temp;
   @override
@@ -492,7 +492,7 @@ abstract class _CurrentWeather implements CurrentWeather {
       final int? sunset,
       final int? moonrise,
       final int? moonset,
-      final int? moon_phase,
+      final double? moon_phase,
       final double? temp,
       final double? feels_like,
       final int? pressure,
@@ -521,7 +521,7 @@ abstract class _CurrentWeather implements CurrentWeather {
   @override
   int? get moonset;
   @override
-  int? get moon_phase;
+  double? get moon_phase;
   @override
   double? get temp;
   @override

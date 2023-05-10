@@ -25,7 +25,6 @@ mixin _$DailyWeather {
   int? get sunset => throw _privateConstructorUsedError;
   int? get moonrise => throw _privateConstructorUsedError;
   int? get moonset => throw _privateConstructorUsedError;
-  int? get moon_phase => throw _privateConstructorUsedError;
   TempDaily? get temp => throw _privateConstructorUsedError;
   TempDaily? get feels_like => throw _privateConstructorUsedError;
   int? get pressure => throw _privateConstructorUsedError;
@@ -58,7 +57,6 @@ abstract class $DailyWeatherCopyWith<$Res> {
       int? sunset,
       int? moonrise,
       int? moonset,
-      int? moon_phase,
       TempDaily? temp,
       TempDaily? feels_like,
       int? pressure,
@@ -95,7 +93,6 @@ class _$DailyWeatherCopyWithImpl<$Res, $Val extends DailyWeather>
     Object? sunset = freezed,
     Object? moonrise = freezed,
     Object? moonset = freezed,
-    Object? moon_phase = freezed,
     Object? temp = freezed,
     Object? feels_like = freezed,
     Object? pressure = freezed,
@@ -130,10 +127,6 @@ class _$DailyWeatherCopyWithImpl<$Res, $Val extends DailyWeather>
       moonset: freezed == moonset
           ? _value.moonset
           : moonset // ignore: cast_nullable_to_non_nullable
-              as int?,
-      moon_phase: freezed == moon_phase
-          ? _value.moon_phase
-          : moon_phase // ignore: cast_nullable_to_non_nullable
               as int?,
       temp: freezed == temp
           ? _value.temp
@@ -229,7 +222,6 @@ abstract class _$$_DailyWeatherCopyWith<$Res>
       int? sunset,
       int? moonrise,
       int? moonset,
-      int? moon_phase,
       TempDaily? temp,
       TempDaily? feels_like,
       int? pressure,
@@ -266,7 +258,6 @@ class __$$_DailyWeatherCopyWithImpl<$Res>
     Object? sunset = freezed,
     Object? moonrise = freezed,
     Object? moonset = freezed,
-    Object? moon_phase = freezed,
     Object? temp = freezed,
     Object? feels_like = freezed,
     Object? pressure = freezed,
@@ -301,10 +292,6 @@ class __$$_DailyWeatherCopyWithImpl<$Res>
       moonset: freezed == moonset
           ? _value.moonset
           : moonset // ignore: cast_nullable_to_non_nullable
-              as int?,
-      moon_phase: freezed == moon_phase
-          ? _value.moon_phase
-          : moon_phase // ignore: cast_nullable_to_non_nullable
               as int?,
       temp: freezed == temp
           ? _value.temp
@@ -371,7 +358,6 @@ class _$_DailyWeather implements _DailyWeather {
       this.sunset,
       this.moonrise,
       this.moonset,
-      this.moon_phase,
       this.temp,
       this.feels_like,
       this.pressure,
@@ -400,8 +386,6 @@ class _$_DailyWeather implements _DailyWeather {
   final int? moonrise;
   @override
   final int? moonset;
-  @override
-  final int? moon_phase;
   @override
   final TempDaily? temp;
   @override
@@ -439,7 +423,7 @@ class _$_DailyWeather implements _DailyWeather {
 
   @override
   String toString() {
-    return 'DailyWeather(dt: $dt, sunrise: $sunrise, sunset: $sunset, moonrise: $moonrise, moonset: $moonset, moon_phase: $moon_phase, temp: $temp, feels_like: $feels_like, pressure: $pressure, humidity: $humidity, dew_point: $dew_point, uvi: $uvi, clouds: $clouds, visibility: $visibility, wind_speed: $wind_speed, wind_deg: $wind_deg, wind_gust: $wind_gust, weather: $weather, pop: $pop)';
+    return 'DailyWeather(dt: $dt, sunrise: $sunrise, sunset: $sunset, moonrise: $moonrise, moonset: $moonset, temp: $temp, feels_like: $feels_like, pressure: $pressure, humidity: $humidity, dew_point: $dew_point, uvi: $uvi, clouds: $clouds, visibility: $visibility, wind_speed: $wind_speed, wind_deg: $wind_deg, wind_gust: $wind_gust, weather: $weather, pop: $pop)';
   }
 
   @override
@@ -453,8 +437,6 @@ class _$_DailyWeather implements _DailyWeather {
             (identical(other.moonrise, moonrise) ||
                 other.moonrise == moonrise) &&
             (identical(other.moonset, moonset) || other.moonset == moonset) &&
-            (identical(other.moon_phase, moon_phase) ||
-                other.moon_phase == moon_phase) &&
             (identical(other.temp, temp) || other.temp == temp) &&
             (identical(other.feels_like, feels_like) ||
                 other.feels_like == feels_like) &&
@@ -480,28 +462,26 @@ class _$_DailyWeather implements _DailyWeather {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hashAll([
-        runtimeType,
-        dt,
-        sunrise,
-        sunset,
-        moonrise,
-        moonset,
-        moon_phase,
-        temp,
-        feels_like,
-        pressure,
-        humidity,
-        dew_point,
-        uvi,
-        clouds,
-        visibility,
-        wind_speed,
-        wind_deg,
-        wind_gust,
-        const DeepCollectionEquality().hash(_weather),
-        pop
-      ]);
+  int get hashCode => Object.hash(
+      runtimeType,
+      dt,
+      sunrise,
+      sunset,
+      moonrise,
+      moonset,
+      temp,
+      feels_like,
+      pressure,
+      humidity,
+      dew_point,
+      uvi,
+      clouds,
+      visibility,
+      wind_speed,
+      wind_deg,
+      wind_gust,
+      const DeepCollectionEquality().hash(_weather),
+      pop);
 
   @JsonKey(ignore: true)
   @override
@@ -524,7 +504,6 @@ abstract class _DailyWeather implements DailyWeather {
       final int? sunset,
       final int? moonrise,
       final int? moonset,
-      final int? moon_phase,
       final TempDaily? temp,
       final TempDaily? feels_like,
       final int? pressure,
@@ -552,8 +531,6 @@ abstract class _DailyWeather implements DailyWeather {
   int? get moonrise;
   @override
   int? get moonset;
-  @override
-  int? get moon_phase;
   @override
   TempDaily? get temp;
   @override

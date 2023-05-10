@@ -13,7 +13,6 @@ _$_DailyWeather _$$_DailyWeatherFromJson(Map<String, dynamic> json) =>
       sunset: json['sunset'] as int?,
       moonrise: json['moonrise'] as int?,
       moonset: json['moonset'] as int?,
-      moon_phase: json['moon_phase'] as int?,
       temp: json['temp'] == null
           ? null
           : TempDaily.fromJson(json['temp'] as Map<String, dynamic>),
@@ -42,7 +41,6 @@ Map<String, dynamic> _$$_DailyWeatherToJson(_$_DailyWeather instance) =>
       'sunset': instance.sunset,
       'moonrise': instance.moonrise,
       'moonset': instance.moonset,
-      'moon_phase': instance.moon_phase,
       'temp': instance.temp,
       'feels_like': instance.feels_like,
       'pressure': instance.pressure,

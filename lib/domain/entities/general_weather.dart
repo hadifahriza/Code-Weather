@@ -17,6 +17,7 @@ class GeneralWeather with _$GeneralWeather {
     CurrentWeather? current,
     List<MinuteWeather>? minutely,
     List<CurrentWeather>? hourly,
+    List<DailyWeather>? daily,
   }) = _GeneralWeather;
 
   factory GeneralWeather.fromJson(Map<String, dynamic> json) => _$GeneralWeatherFromJson(json);

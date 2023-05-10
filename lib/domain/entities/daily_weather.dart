@@ -14,7 +14,6 @@ class DailyWeather with _$DailyWeather {
     Sunset? sunset,
     Moonrise? moonrise,
     Moonset? moonset,
-    MoonPhase? moon_phase,
     TempDaily? temp,
     TempDaily? feels_like,
     Pressure? pressure,

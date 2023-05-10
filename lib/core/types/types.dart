@@ -8,7 +8,7 @@ typedef Sunrise = int;
 typedef Sunset = int;
 typedef Moonrise = int;
 typedef Moonset = int;
-typedef MoonPhase = int;
+typedef MoonPhase = double;
 
 typedef Temp = double;
 typedef FeelsLike = double;

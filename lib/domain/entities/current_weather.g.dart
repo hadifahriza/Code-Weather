@@ -13,7 +13,7 @@ _$_CurrentWeather _$$_CurrentWeatherFromJson(Map<String, dynamic> json) =>
       sunset: json['sunset'] as int?,
       moonrise: json['moonrise'] as int?,
       moonset: json['moonset'] as int?,
-      moon_phase: json['moon_phase'] as int?,
+      moon_phase: (json['moon_phase'] as num?)?.toDouble(),
       temp: (json['temp'] as num?)?.toDouble(),
       feels_like: (json['feels_like'] as num?)?.toDouble(),
       pressure: json['pressure'] as int?,
