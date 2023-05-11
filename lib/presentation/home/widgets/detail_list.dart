@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:open_weather/bloc/weather/weather_bloc.dart';
 import 'package:open_weather/core/styles/constant_style.dart';
+import 'package:open_weather/core/utils/datetime_converter.dart';
 import 'package:open_weather/domain/entities/daily_weather.dart';
 import 'package:open_weather/presentation/home/widgets/date_box.dart';
 import 'package:open_weather/presentation/home/widgets/info_tile.dart';
@@ -79,11 +80,19 @@ class _DetailListState extends State<DetailList> {
         ),
         InfoTile(
           label: 'Sunrise',
-          value: context.read<WeatherBloc>().state.generalWeather?.daily?[currentIndex].sunrise.toString(),
+          value: '${DatetimeConverter.hourMinuteOnly(
+            DatetimeConverter.epochToDateTime(
+              context.read<WeatherBloc>().state.generalWeather?.daily?[currentIndex].sunrise ?? 0,
+            ),
+          )} am',
         ),
         InfoTile(
           label: 'Sunset',
-          value: context.read<WeatherBloc>().state.generalWeather?.daily?[currentIndex].sunset.toString(),
+          value: '${DatetimeConverter.hourMinuteOnly(
+            DatetimeConverter.epochToDateTime(
+              context.read<WeatherBloc>().state.generalWeather?.daily?[currentIndex].sunset ?? 0,
+            ),
+          )} pm',
         ),
       ],
     );
