@@ -81,7 +81,7 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const Temperature(),
+              Temperature(data: context.read<WeatherBloc>().state.generalWeather?.current),
               // MaterialButton(
               //   onPressed: () {
               //     // TODO: change to autoRoute
@@ -107,9 +107,9 @@ class _HomePageState extends State<HomePage> {
               //   ),
               // ),
               const SizedBox(height: ConstantStyle.height20),
-              const WeatherBox(),
+              WeatherBox(data: context.read<WeatherBloc>().state.generalWeather?.current),
               const SizedBox(height: ConstantStyle.height20),
-              const HourList(),
+              HourList(data: context.read<WeatherBloc>().state.generalWeather?.hourly),
               const SizedBox(height: ConstantStyle.height20),
               isList
                   ? DateList(onTap: (value) => changeList)

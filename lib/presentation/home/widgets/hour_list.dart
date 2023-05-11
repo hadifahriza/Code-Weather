@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:open_weather/bloc/weather/weather_bloc.dart';
 import 'package:open_weather/core/styles/constant_style.dart';
+import 'package:open_weather/domain/entities/current_weather.dart';
 
 import 'hour_weather.dart';
 
 class HourList extends StatelessWidget {
-  const HourList({super.key});
+  final List<CurrentWeather>? data;
+
+  const HourList({
+    super.key,
+    this.data,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +19,9 @@ class HourList extends StatelessWidget {
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         physics: const AlwaysScrollableScrollPhysics(),
-        itemCount: context.read<WeatherBloc>().state.generalWeather?.hourly?.length ?? 0,
+        itemCount: data?.length ?? 0,
         itemBuilder: (context, index) {
-          return HourWeather(data: context.read<WeatherBloc>().state.generalWeather?.hourly?[index]);
+          return HourWeather(data: data?[index]);
         },
         separatorBuilder: (context, index) => const SizedBox(width: ConstantStyle.width20),
       ),

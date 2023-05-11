@@ -34,10 +34,10 @@ class DateTile extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 const SizedBox(width: ConstantStyle.width10),
-                Icon(
-                  Icons.cloud,
-                  size: ConstantStyle.size20,
-                  color: Theme.of(context).colorScheme.onBackground.withOpacity(ConstantStyle.opacity50),
+                Image.network(
+                  'https://openweathermap.org/img/wn/${data?.weather?.first.icon}.png',
+                  height: ConstantStyle.height20,
+                  fit: BoxFit.contain,
                 ),
                 const SizedBox(width: ConstantStyle.width10),
                 Icon(

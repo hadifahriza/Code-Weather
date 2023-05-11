@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:open_weather/bloc/weather/weather_bloc.dart';
 import 'package:open_weather/core/styles/constant_style.dart';
 import 'package:open_weather/core/utils/length_converter.dart';
 import 'package:open_weather/core/utils/temp_converter.dart';
+import 'package:open_weather/domain/entities/current_weather.dart';
 
 class WeatherBox extends StatelessWidget {
-  const WeatherBox({super.key});
+  final CurrentWeather? data;
+
+  const WeatherBox({
+    super.key,
+    this.data,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,21 +26,21 @@ class WeatherBox extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Wind: ${context.read<WeatherBloc>().state.generalWeather?.current?.wind_speed?.toStringAsFixed(1)} m/s SSE',
+                'Wind: ${data?.wind_speed?.toStringAsFixed(1)} m/s SSE',
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: Theme.of(context).colorScheme.onBackground,
                       fontWeight: FontWeight.bold,
                     ),
               ),
               Text(
-                'Humidity: ${context.read<WeatherBloc>().state.generalWeather?.current?.humidity}%',
+                'Humidity: ${data?.humidity}%',
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: Theme.of(context).colorScheme.onBackground,
                       fontWeight: FontWeight.bold,
                     ),
               ),
               Text(
-                'UV index: ${context.read<WeatherBloc>().state.generalWeather?.current?.uvi}',
+                'UV index: ${data?.uvi}',
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: Theme.of(context).colorScheme.onBackground,
                       fontWeight: FontWeight.bold,
@@ -49,21 +53,21 @@ class WeatherBox extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Pressure: ${context.read<WeatherBloc>().state.generalWeather?.current?.pressure} hPa',
+                'Pressure: ${data?.pressure} hPa',
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: Theme.of(context).colorScheme.onBackground,
                       fontWeight: FontWeight.bold,
                     ),
               ),
               Text(
-                'Visibility: ${LengthConverter.mToKm((context.read<WeatherBloc>().state.generalWeather?.current?.visibility ?? 0).toDouble())} km',
+                'Visibility: ${LengthConverter.mToKm((data?.visibility ?? 0).toDouble())} km',
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: Theme.of(context).colorScheme.onBackground,
                       fontWeight: FontWeight.bold,
                     ),
               ),
               Text(
-                'Dew point: ${TempConverter.kelvinToCelcius(context.read<WeatherBloc>().state.generalWeather?.current?.dew_point ?? 0)}',
+                'Dew point: ${TempConverter.kelvinToCelcius(data?.dew_point ?? 0)}',
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: Theme.of(context).colorScheme.onBackground,
                       fontWeight: FontWeight.bold,

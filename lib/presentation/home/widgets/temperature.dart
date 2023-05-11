@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:open_weather/bloc/weather/weather_bloc.dart';
 import 'package:open_weather/core/styles/constant_style.dart';
 import 'package:open_weather/core/utils/temp_converter.dart';
+import 'package:open_weather/domain/entities/current_weather.dart';
 
 class Temperature extends StatelessWidget {
-  const Temperature({super.key});
+  final CurrentWeather? data;
+
+  const Temperature({
+    super.key,
+    this.data,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,17 +18,17 @@ class Temperature extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(Icons.cloud),
+            Image.network('https://openweathermap.org/img/wn/${data?.weather?.first.icon}.png'),
             const SizedBox(width: ConstantStyle.width10),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  context.read<WeatherBloc>().state.generalWeather?.current?.weather?.first.main ?? '',
+                  data?.weather?.first.main ?? '',
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 Text(
-                  context.read<WeatherBloc>().state.generalWeather?.current?.weather?.first.description ?? '',
+                  data?.weather?.first.description ?? '',
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
               ],
@@ -32,11 +36,11 @@ class Temperature extends StatelessWidget {
           ],
         ),
         Text(
-          TempConverter.kelvinToCelcius(context.read<WeatherBloc>().state.generalWeather?.current?.temp ?? 0),
+          TempConverter.kelvinToCelcius(data?.temp ?? 0),
           style: Theme.of(context).textTheme.displayMedium,
         ),
         Text(
-          TempConverter.kelvinToCelcius(context.read<WeatherBloc>().state.generalWeather?.current?.feels_like ?? 0),
+          TempConverter.kelvinToCelcius(data?.feels_like ?? 0),
           style: Theme.of(context).textTheme.bodySmall,
         ),
       ],

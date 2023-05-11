@@ -20,9 +20,10 @@ class HourWeather extends StatelessWidget {
           DatetimeConverter.hourMinuteOnly(DatetimeConverter.epochToDateTime(data?.dt ?? 0)),
           style: Theme.of(context).textTheme.bodySmall,
         ),
-        Icon(
-          Icons.cloud,
-          color: Theme.of(context).colorScheme.onBackground.withOpacity(ConstantStyle.opacity50),
+        Image.network(
+          'https://openweathermap.org/img/wn/${data?.weather?.first.icon}.png',
+          height: ConstantStyle.height20,
+          fit: BoxFit.contain,
         ),
         Text(
           TempConverter.kelvinToCelcius(data?.temp ?? 0),
