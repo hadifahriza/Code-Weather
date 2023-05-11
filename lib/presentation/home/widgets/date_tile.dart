@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:open_weather/core/styles/constant_style.dart';
+import 'package:open_weather/core/utils/datetime_converter.dart';
+import 'package:open_weather/core/utils/temp_converter.dart';
+import 'package:open_weather/domain/entities/daily_weather.dart';
 
 class DateTile extends StatelessWidget {
+  final DailyWeather? data;
   final VoidCallback? onTap;
 
   const DateTile({
     super.key,
+    this.data,
     this.onTap,
   });
 
@@ -19,13 +24,13 @@ class DateTile extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Tue May 09',
+              DatetimeConverter.dateMonthOnly(DatetimeConverter.epochToDateTime(data?.dt ?? 0)),
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             Row(
               children: [
                 Text(
-                  '84 / 70 F',
+                  TempConverter.kelvinToCelcius(data?.temp?.day ?? 0),
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 const SizedBox(width: ConstantStyle.width10),

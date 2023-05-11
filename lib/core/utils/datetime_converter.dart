@@ -40,6 +40,26 @@ class DatetimeConverter {
     final dateFormatter = DateFormat("hh:mm");
     return dateFormatter.format(dateTime);
   }
+
+  static String dateMonthOnly(DateTime dateTime) {
+    final dateFormatter = DateFormat("E MMMM dd");
+    return dateFormatter.format(dateTime);
+  }
+
+  static String dateNameOnly(DateTime dateTime) {
+    final dateFormatter = DateFormat("E");
+    return dateFormatter.format(dateTime);
+  }
+
+  static String dateOnly(DateTime dateTime) {
+    final dateFormatter = DateFormat("dd");
+    return dateFormatter.format(dateTime);
+  }
+
+  static String monthOnly(DateTime dateTime) {
+    final dateFormatter = DateFormat("MMMM");
+    return dateFormatter.format(dateTime);
+  }
 }
 
 /*

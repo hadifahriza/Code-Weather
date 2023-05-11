@@ -1,14 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:open_weather/bloc/weather/weather_bloc.dart';
 import 'package:open_weather/core/styles/constant_style.dart';
+import 'package:open_weather/domain/entities/daily_weather.dart';
 import 'package:open_weather/presentation/home/widgets/date_box.dart';
+import 'package:open_weather/presentation/home/widgets/info_tile.dart';
 
-class DetailList extends StatelessWidget {
-  final VoidCallback? onTap;
+class DetailList extends StatefulWidget {
+  final List<DailyWeather>? data;
+  final VoidCallback? onBack;
 
   const DetailList({
     super.key,
-    this.onTap,
+    this.data,
+    this.onBack,
   });
+
+  @override
+  State<DetailList> createState() => _DetailListState();
+}
+
+class _DetailListState extends State<DetailList> {
+  int currentIndex = 0;
+
+  void updateCurrentIndex(int value) {
+    setState(() {
+      currentIndex = value;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,75 +42,78 @@ class DetailList extends StatelessWidget {
                   physics: const AlwaysScrollableScrollPhysics(),
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
-                  itemCount: 8,
+                  itemCount: widget.data?.length ?? 0,
                   itemBuilder: (context, index) {
-                    return const DateBox();
+                    return DateBox(
+                      isSelected: index == currentIndex,
+                      data: widget.data?[index],
+                      onTap: () => updateCurrentIndex(index),
+                    );
                   },
                   separatorBuilder: (context, index) => const SizedBox(),
                 ),
               ),
               IconButton(
-                onPressed: onTap,
+                onPressed: widget.onBack,
                 icon: const Icon(Icons.list),
               ),
             ],
           ),
         ),
         const SizedBox(height: ConstantStyle.height10),
-        ListTile(
-          contentPadding: EdgeInsets.zero,
-          dense: true,
-          title: Text(
-            'Moderate rain',
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
-          ),
-          subtitle: Text(
-            'Light breeze',
-            style: Theme.of(context).textTheme.bodySmall,
-          ),
-          trailing: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                '83 / 70 F',
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
-              const SizedBox(width: 10),
-              Icon(
-                Icons.cloud,
-                color: Theme.of(context).colorScheme.onBackground,
-              ),
-            ],
-          ),
+        // ListTile(
+        //   contentPadding: EdgeInsets.zero,
+        //   dense: true,
+        //   title: Text(
+        //     'Moderate rain',
+        //     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+        //           fontWeight: FontWeight.bold,
+        //         ),
+        //   ),
+        //   subtitle: Text(
+        //     'Light breeze',
+        //     style: Theme.of(context).textTheme.bodySmall,
+        //   ),
+        //   trailing: Row(
+        //     mainAxisAlignment: MainAxisAlignment.end,
+        //     mainAxisSize: MainAxisSize.min,
+        //     children: [
+        //       Text(
+        //         '83 / 70 F',
+        //         style: Theme.of(context).textTheme.bodyMedium,
+        //       ),
+        //       const SizedBox(width: 10),
+        //       Icon(
+        //         Icons.cloud,
+        //         color: Theme.of(context).colorScheme.onBackground,
+        //       ),
+        //     ],
+        //   ),
+        // ),
+        // const SizedBox(height: ConstantStyle.height10),
+        InfoTile(
+          label: 'Wind',
+          value: context.read<WeatherBloc>().state.generalWeather?.daily?[currentIndex].wind_speed.toString(),
         ),
-        const SizedBox(height: ConstantStyle.height10),
-        SizedBox(
-          height: 8 * 62,
-          child: ListView.separated(
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: 8,
-            itemBuilder: (context, index) {
-              return ListTile(
-                contentPadding: EdgeInsets.zero,
-                dense: true,
-                title: Text(
-                  'Precipitation $index',
-                  style: Theme.of(context).textTheme.bodyMedium,
-                ),
-                trailing: Text(
-                  '0.251in',
-                  style: Theme.of(context).textTheme.bodyMedium,
-                ),
-              );
-            },
-            separatorBuilder: (context, index) => Divider(
-              color: Theme.of(context).colorScheme.secondary,
-            ),
-          ),
+        InfoTile(
+          label: 'Pressure',
+          value: context.read<WeatherBloc>().state.generalWeather?.daily?[currentIndex].pressure.toString(),
+        ),
+        InfoTile(
+          label: 'Hummidity',
+          value: context.read<WeatherBloc>().state.generalWeather?.daily?[currentIndex].humidity.toString(),
+        ),
+        InfoTile(
+          label: 'UV Index',
+          value: context.read<WeatherBloc>().state.generalWeather?.daily?[currentIndex].uvi.toString(),
+        ),
+        InfoTile(
+          label: 'Sunrise',
+          value: context.read<WeatherBloc>().state.generalWeather?.daily?[currentIndex].sunrise.toString(),
+        ),
+        InfoTile(
+          label: 'Sunset',
+          value: context.read<WeatherBloc>().state.generalWeather?.daily?[currentIndex].sunset.toString(),
         ),
       ],
     );

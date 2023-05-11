@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:open_weather/bloc/location/location_bloc.dart';
 import 'package:open_weather/bloc/weather/weather_bloc.dart';
 import 'package:open_weather/core/styles/constant_style.dart';
-import 'package:open_weather/presentation/details/details.dart';
 import 'package:open_weather/presentation/home/widgets/detail_list.dart';
 import 'package:open_weather/presentation/search/search_page.dart';
 import 'package:open_weather/presentation/settings/settings_page.dart';
@@ -112,7 +111,12 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(height: ConstantStyle.height20),
               const HourList(),
               const SizedBox(height: ConstantStyle.height20),
-              isList ? DateList(onTap: changeList) : DetailList(onTap: changeList),
+              isList
+                  ? DateList(onTap: (value) => changeList)
+                  : DetailList(
+                      onBack: changeList,
+                      data: context.read<WeatherBloc>().state.generalWeather?.daily,
+                    ),
             ],
           ),
         ),

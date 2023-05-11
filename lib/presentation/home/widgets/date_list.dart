@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:open_weather/bloc/weather/weather_bloc.dart';
 
 import 'date_tile.dart';
 
 class DateList extends StatelessWidget {
-  final VoidCallback? onTap;
+  final Function(int)? onTap;
 
   const DateList({
     super.key,
@@ -19,7 +21,8 @@ class DateList extends StatelessWidget {
         itemCount: 7,
         itemBuilder: (context, index) {
           return DateTile(
-            onTap: onTap,
+            data: context.read<WeatherBloc>().state.generalWeather?.daily?[index],
+            onTap: onTap!(index),
           );
         },
         separatorBuilder: (context, index) => Divider(
