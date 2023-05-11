@@ -67,29 +67,6 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Temperature(data: context.read<WeatherBloc>().state.generalWeather?.current),
-                // MaterialButton(
-                //   onPressed: () {
-                //     Navigator.push(context, MaterialPageRoute(builder: (context) => const DetailsPage()));
-                //   },
-                //   color: Theme.of(context).colorScheme.primary,
-                //   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(ConstantStyle.radius10)),
-                //   child: Row(
-                //     mainAxisSize: MainAxisSize.min,
-                //     children: [
-                //       Icon(
-                //         Icons.info,
-                //         color: Theme.of(context).colorScheme.onPrimary,
-                //       ),
-                //       const SizedBox(width: ConstantStyle.width10),
-                //       Text(
-                //         'Waspada Hujan Lebat - Moderate',
-                //         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                //               color: Theme.of(context).colorScheme.onPrimary,
-                //             ),
-                //       ),
-                //     ],
-                //   ),
-                // ),
                 const SizedBox(height: ConstantStyle.height20),
                 WeatherBox(data: context.read<WeatherBloc>().state.generalWeather?.current),
                 const SizedBox(height: ConstantStyle.height20),
