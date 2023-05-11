@@ -22,7 +22,7 @@ class CustomizeUnitPage extends StatelessWidget {
         ),
         title: Text(
           'Units',
-          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+          style: Theme.of(context).textTheme.titleSmall?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
         ),

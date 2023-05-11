@@ -26,7 +26,7 @@ class SettingPage extends StatelessWidget {
         ),
         title: Text(
           'Settings',
-          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+          style: Theme.of(context).textTheme.titleSmall?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
         ),

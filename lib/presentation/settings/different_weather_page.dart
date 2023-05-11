@@ -20,15 +20,39 @@ class DifferentWeatherPage extends StatefulWidget {
 
 class _DifferentWeatherPageState extends State<DifferentWeatherPage> {
   int selectedIndex = 0;
+  double minTemp = 0;
+  double maxTemp = 0;
   double currentTemp = 0;
+  double minWind = 0;
+  double maxWind = 0;
   double currentWind = 0;
 
   @override
   void initState() {
     super.initState();
     Future.microtask(() {
-      currentTemp = widget.data?.temp ?? 0;
-      currentWind = widget.data?.wind_speed ?? 0;
+      initTempValue();
+      initWindValue();
+    });
+  }
+
+  void initTempValue() {
+    setState(() {
+      if (widget.data?.temp != null) {
+        if (widget.data!.temp! < 0) minTemp = widget.data!.temp!;
+        maxTemp = widget.data!.temp! * 2;
+        currentTemp = widget.data!.temp!;
+      }
+    });
+  }
+
+  void initWindValue() {
+    setState(() {
+      if (widget.data?.wind_speed != null) {
+        if (widget.data!.wind_speed! < 0) minWind = widget.data!.wind_speed!;
+        maxWind = widget.data!.wind_speed! * 2;
+        currentWind = widget.data!.wind_speed!;
+      }
     });
   }
 
@@ -67,7 +91,7 @@ class _DifferentWeatherPageState extends State<DifferentWeatherPage> {
         ),
         title: Text(
           'Different Weather?',
-          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+          style: Theme.of(context).textTheme.titleSmall?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
         ),
@@ -115,9 +139,8 @@ class _DifferentWeatherPageState extends State<DifferentWeatherPage> {
             ),
             const SizedBox(height: ConstantStyle.height10),
             Slider(
-              min: 0,
-              max: 33,
-              divisions: 33,
+              min: minTemp,
+              max: maxTemp,
               value: currentTemp,
               onChanged: (value) => changeCurrentTemp(value),
             ),
@@ -128,9 +151,8 @@ class _DifferentWeatherPageState extends State<DifferentWeatherPage> {
             ),
             const SizedBox(height: ConstantStyle.height10),
             Slider(
-              min: 0,
-              max: 3,
-              divisions: 2,
+              min: minWind,
+              max: maxWind,
               value: currentWind,
               onChanged: (value) => changeCurrentWind(value),
             ),

@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> {
           centerTitle: false,
           title: Text(
             'Weather in your location',
-            style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.bold),
+            style: Theme.of(context).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold),
           ),
           // title: TextField(
           //   decoration: InputDecoration(
