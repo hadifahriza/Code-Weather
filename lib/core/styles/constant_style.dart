@@ -1,6 +1,7 @@
 class ConstantStyle {
   const ConstantStyle._();
 
+  static const double height0 = 0.0;
   static const double height10 = 10.0;
   static const double height20 = 20.0;
   static const double height30 = 30.0;

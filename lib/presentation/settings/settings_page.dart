@@ -47,6 +47,10 @@ class SettingPage extends StatelessWidget {
                 color: Theme.of(context).colorScheme.onBackground,
               ),
             ),
+            Divider(
+              color: Theme.of(context).colorScheme.secondary,
+              height: ConstantStyle.height0,
+            ),
             ListTile(
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const CustomizeUnitPage()));
@@ -62,6 +66,10 @@ class SettingPage extends StatelessWidget {
                 size: ConstantStyle.size16,
                 color: Theme.of(context).colorScheme.onBackground,
               ),
+            ),
+            Divider(
+              color: Theme.of(context).colorScheme.secondary,
+              height: ConstantStyle.height0,
             ),
             ListTile(
               contentPadding: EdgeInsets.zero,
