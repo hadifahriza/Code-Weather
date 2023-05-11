@@ -8,6 +8,7 @@ class ConstantStyle {
   static const double height40 = 40.0;
   static const double height60 = 60.0;
 
+  static const double opacity0 = 0.0;
   static const double opacity25 = 0.25;
   static const double opacity50 = 0.5;
   static const double opacity75 = 0.75;
