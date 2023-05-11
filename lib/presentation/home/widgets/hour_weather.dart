@@ -22,7 +22,7 @@ class HourWeather extends StatelessWidget {
         ),
         Image.network(
           'https://openweathermap.org/img/wn/${data?.weather?.first.icon}.png',
-          height: ConstantStyle.height20,
+          height: ConstantStyle.height40,
           fit: BoxFit.contain,
         ),
         Text(

@@ -15,7 +15,7 @@ class HourList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: ConstantStyle.height60,
+      height: ConstantStyle.height80,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         physics: const AlwaysScrollableScrollPhysics(),
