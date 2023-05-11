@@ -61,36 +61,6 @@ class _DetailListState extends State<DetailList> {
           ),
         ),
         const SizedBox(height: ConstantStyle.height10),
-        // ListTile(
-        //   contentPadding: EdgeInsets.zero,
-        //   dense: true,
-        //   title: Text(
-        //     'Moderate rain',
-        //     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-        //           fontWeight: FontWeight.bold,
-        //         ),
-        //   ),
-        //   subtitle: Text(
-        //     'Light breeze',
-        //     style: Theme.of(context).textTheme.bodySmall,
-        //   ),
-        //   trailing: Row(
-        //     mainAxisAlignment: MainAxisAlignment.end,
-        //     mainAxisSize: MainAxisSize.min,
-        //     children: [
-        //       Text(
-        //         '83 / 70 F',
-        //         style: Theme.of(context).textTheme.bodyMedium,
-        //       ),
-        //       const SizedBox(width: 10),
-        //       Icon(
-        //         Icons.cloud,
-        //         color: Theme.of(context).colorScheme.onBackground,
-        //       ),
-        //     ],
-        //   ),
-        // ),
-        // const SizedBox(height: ConstantStyle.height10),
         InfoTile(
           label: 'Wind',
           value: context.read<WeatherBloc>().state.generalWeather?.daily?[currentIndex].wind_speed.toString(),

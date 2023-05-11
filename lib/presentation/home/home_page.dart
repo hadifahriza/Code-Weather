@@ -4,7 +4,6 @@ import 'package:open_weather/bloc/location/location_bloc.dart';
 import 'package:open_weather/bloc/weather/weather_bloc.dart';
 import 'package:open_weather/core/styles/constant_style.dart';
 import 'package:open_weather/presentation/home/widgets/detail_list.dart';
-import 'package:open_weather/presentation/search/search_page.dart';
 import 'package:open_weather/presentation/settings/settings_page.dart';
 
 import 'widgets/date_list.dart';
@@ -47,21 +46,6 @@ class _HomePageState extends State<HomePage> {
             'Weather in your location',
             style: Theme.of(context).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold),
           ),
-          // title: TextField(
-          //   decoration: InputDecoration(
-          //     border: OutlineInputBorder(
-          //       borderRadius: BorderRadius.circular(ConstantStyle.radius10),
-          //       borderSide: BorderSide.none,
-          //     ),
-          //     filled: true,
-          //     fillColor: Theme.of(context).colorScheme.secondary.withOpacity(ConstantStyle.opacity25),
-          //     contentPadding: const EdgeInsets.symmetric(horizontal: ConstantStyle.padding10),
-          //     prefixIcon: Icon(
-          //       Icons.search,
-          //       color: Theme.of(context).colorScheme.onBackground,
-          //     ),
-          //   ),
-          // ),
           actions: [
             IconButton(
               onPressed: () {
