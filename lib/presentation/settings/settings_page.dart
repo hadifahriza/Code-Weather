@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:open_weather/core/constants/message_constants.dart';
 import 'package:open_weather/core/styles/constant_style.dart';
+import 'package:open_weather/presentation/settings/cutomize_unit_page.dart';
 
 class SettingPage extends StatelessWidget {
   const SettingPage({super.key});
@@ -47,7 +48,9 @@ class SettingPage extends StatelessWidget {
               ),
             ),
             ListTile(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const CustomizeUnitPage()));
+              },
               contentPadding: EdgeInsets.zero,
               dense: true,
               title: Text(
