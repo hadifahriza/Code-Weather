@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:open_weather/bloc/weather/weather_bloc.dart';
 import 'package:open_weather/core/constants/message_constants.dart';
 import 'package:open_weather/core/styles/constant_style.dart';
+import 'package:open_weather/presentation/settings/cutomize_unit_page.dart';
+import 'package:open_weather/presentation/settings/different_weather_page.dart';
 
 class SettingPage extends StatelessWidget {
   const SettingPage({super.key});
@@ -22,7 +26,7 @@ class SettingPage extends StatelessWidget {
         ),
         title: Text(
           'Settings',
-          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+          style: Theme.of(context).textTheme.titleSmall?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
         ),
@@ -33,7 +37,14 @@ class SettingPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ListTile(
-              onTap: () {},
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DifferentWeatherPage(
+                    data: context.read<WeatherBloc>().state.generalWeather?.current,
+                  ),
+                ),
+              ),
               contentPadding: EdgeInsets.zero,
               dense: true,
               title: Text(
@@ -46,8 +57,14 @@ class SettingPage extends StatelessWidget {
                 color: Theme.of(context).colorScheme.onBackground,
               ),
             ),
+            Divider(
+              color: Theme.of(context).colorScheme.secondary,
+              height: ConstantStyle.height0,
+            ),
             ListTile(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const CustomizeUnitPage()));
+              },
               contentPadding: EdgeInsets.zero,
               dense: true,
               title: Text(
@@ -59,6 +76,10 @@ class SettingPage extends StatelessWidget {
                 size: ConstantStyle.size16,
                 color: Theme.of(context).colorScheme.onBackground,
               ),
+            ),
+            Divider(
+              color: Theme.of(context).colorScheme.secondary,
+              height: ConstantStyle.height0,
             ),
             ListTile(
               contentPadding: EdgeInsets.zero,

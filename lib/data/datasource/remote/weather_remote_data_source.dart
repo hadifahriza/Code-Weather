@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:open_weather/core/constants/api_url.dart';
 import 'package:open_weather/core/constants/message_constants.dart';
-import 'package:open_weather/core/constants/secret_key.dart';
 import 'package:open_weather/core/error/exceptions.dart';
 import 'package:open_weather/domain/entities/general_weather.dart';
 import 'package:open_weather/domain/usecases/get_general_weather_usecase.dart';
@@ -22,7 +21,7 @@ class WeatherRemoteDataSourceImpl implements WeatherRemoteDataSource {
       Map<String, dynamic> queryParam = {
         'lat': params.position.latitude,
         'lon': params.position.longitude,
-        'appid': SecretKey.appid,
+        'appid': ApiUrl.appId,
       };
 
       final response = await client.get(
