@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_weather/core/constants/message_constants.dart';
 import 'package:open_weather/core/styles/constant_style.dart';
 
 class SettingPage extends StatelessWidget {
@@ -72,7 +73,7 @@ class SettingPage extends StatelessWidget {
               ),
             ),
             Text(
-              List<String>.generate(100, (index) => 'text').toString(),
+              MessagesConstants.loremIpsum,
               style: Theme.of(context).textTheme.bodyMedium,
             ),
           ],
